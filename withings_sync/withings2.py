@@ -190,15 +190,18 @@ class WithingsAccount:
 
     def get_lastsync(self):
         """get last sync timestamp"""
-        if not self.withings.user_config.get("last_sync"):
+        file = open("date.txt", "r")
+        timestamp = file.read()
+        if not timestamp:
             return int(time.mktime(date.today().timetuple()))
-        return self.withings.user_config["last_sync"]
+        return timestamp
 
     def set_lastsync(self):
         """set last sync timestamp"""
-        self.withings.user_config["last_sync"] = int(time.time())
-        log.info("Saving Last Sync")
-        self.withings.update_config()
+        date = int(time.time())
+        f = open("date.txt", "w")
+        f.write(str(date))
+        f.close()
 
     def get_measurements(self, startdate, enddate):
         """get Withings measurements"""

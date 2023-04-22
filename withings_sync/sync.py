@@ -415,7 +415,7 @@ def sync():
     withings = WithingsAccount()
 
     if not ARGS.fromdate:
-        startdate = withings.get_lastsync()
+        startdate = int(withings.get_lastsync())
     else:
         startdate = int(time.mktime(ARGS.fromdate.timetuple()))
 
@@ -428,7 +428,6 @@ def sync():
 
     height = withings.get_height()
     groups = withings.get_measurements(startdate=startdate, enddate=enddate)
-
     # Only upload if there are measurement returned
     if groups is None or len(groups) == 0:
         logging.error("No measurements to upload for date or period specified")
@@ -472,6 +471,7 @@ def sync():
 
     # Save this sync so we don't re-download the same data again (if no range has been specified)
     if not ARGS.fromdate:
+        logging.info("Setting last sync timestamp...")
         withings.set_lastsync()
 
     return 0
