@@ -63,7 +63,7 @@ spec:
             envFrom:
             - secretRef:
                 name: credentials
-            image: stv0g/withings-sync
+            image: ghcr.io/jaroslawhartman/withings-sync:master
             imagePullPolicy: Always
             name: withings-garmin-sync
             volumeMounts:
@@ -84,6 +84,6 @@ spec:
             persistentVolumeClaim:
               claimName: withings-oauth-cache
 
-  schedule: '* */3 * * *'
+  schedule: '0 */3 * * *'
   successfulJobsHistoryLimit: 3
 

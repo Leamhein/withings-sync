@@ -11,31 +11,25 @@ def read(fname):
 
 
 setup(
-    name='withings-sync',
-    version='3.3.1',
-    author='Masayuki Hamasaki, Steffen Vogel',
-    author_email='post@steffenvogel.de',
-    description='A tool for synchronisation of Withings (ex. Nokia Health Body) to Garmin Connect and Trainer Road.',
-    license='MIT',
-    keywords='garmin withings sync api scale smarthome',
-    url='http://packages.python.org/an_example_pypi_project',
-    packages=['withings_sync'],
-    long_description=read('README.md'),
-    long_description_content_type='text/markdown',
+    name="withings-sync",
+    version="3.6.1",
+    author="Masayuki Hamasaki, Steffen Vogel",
+    author_email="post@steffenvogel.de",
+    description="A tool for synchronisation of Withings (ex. Nokia Health Body) to Garmin Connect and Trainer Road.",
+    license="MIT",
+    keywords="garmin withings sync api scale smarthome",
+    url="http://packages.python.org/an_example_pypi_project",
+    packages=["withings_sync"],
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     classifiers=[
-        'Topic :: Utilities',
-        'License :: OSI Approved :: MIT License',
+        "Topic :: Utilities",
+        "License :: OSI Approved :: MIT License",
     ],
-    install_requires=[
-        'lxml',
-        'requests',
-        'cloudscraper'
-    ],
+    install_requires=["lxml", "requests", "cloudscraper"],
     entry_points={
-        'console_scripts': [
-            'withings-sync=withings_sync.sync:main'
-        ],
+        "console_scripts": ["withings-sync=withings_sync.sync:main"],
     },
     zip_safe=False,
-    include_package_data=True
+    include_package_data=True,
 )
