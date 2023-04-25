@@ -1,0 +1,1 @@
+sudo python run.sh --garmin-username **** --garmin-password ****
